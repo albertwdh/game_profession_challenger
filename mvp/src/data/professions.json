@@ -1,0 +1,43 @@
+{
+  "professions": [
+    {
+      "id": "fullstack_dev",
+      "name": "全栈开发工程师",
+      "avatar": "👨‍💻",
+      "outfit": "格子衬衫 + 防脱发洗发水",
+      "description": "精通各种框架的安装与卸载，擅长在 Stack Overflow 寻找 Bug 解决方案。",
+      "initialStats": {
+        "money": 2000,
+        "mental": 100,
+        "competence": 20,
+        "slacking": 0
+      }
+    },
+    {
+      "id": "new_media",
+      "name": "新媒体运营",
+      "avatar": "🤳",
+      "outfit": "手持云台 + 提神咖啡",
+      "description": "追逐热点的猎人，为了 10w+ 可以献祭自己的发际线。",
+      "initialStats": {
+        "money": 1500,
+        "mental": 120,
+        "competence": 15,
+        "slacking": 10
+      }
+    },
+    {
+      "id": "newbie",
+      "name": "职场萌新",
+      "avatar": "🐣",
+      "outfit": "空白简历 + 清澈的眼神",
+      "description": "整顿职场的希望，擅长在开会时表演‘认真记录’。",
+      "initialStats": {
+        "money": 500,
+        "mental": 150,
+        "competence": 5,
+        "slacking": 0
+      }
+    }
+  ]
+}
