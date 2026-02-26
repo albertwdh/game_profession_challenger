@@ -1,0 +1,113 @@
+:root {
+  --bg-color: #c0c0c0;
+  --win-blue: #000080;
+  --win-white: #ffffff;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #333;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 400px;
+  height: 90vh;
+  background-color: var(--bg-color);
+  border: 4px solid;
+  border-color: #fff #808080 #808080 #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.status-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  background: #fff;
+  padding: 5px;
+  border: 2px inset #808080;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.event-card {
+  flex: 1;
+  border: 2px solid #000;
+  padding: 15px;
+  background: #fff;
+}
+
+.event-card h2 {
+  font-size: 18px;
+  margin-top: 0;
+  color: var(--win-blue);
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 8px;
+  background: var(--bg-color);
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+}
+
+button:active {
+  border-color: #808080 #fff #fff #808080;
+}
+
+/* 弹窗样式 */
+.modal-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal {
+  background: var(--bg-color);
+  border: 4px solid;
+  border-color: #fff #808080 #808080 #fff;
+  padding: 15px;
+  max-width: 320px;
+}
+
+.insight-box {
+  background: #ffffe1;
+  border: 1px dashed #000;
+  padding: 10px;
+  margin: 15px 0;
+  font-size: 13px;
+}
+
+.game-over {
+  text-align: center;
+  background: #fff;
+  padding: 40px;
+  border: 4px solid red;
+}
