@@ -3,95 +3,166 @@
     {
       "id": "fs_ai_001",
       "title": "Copilot 的“投毒”",
-      "description": "你正在赶进度，AI 自动补全了一段极其复杂的正则代码。看起来非常优雅，但你总觉得哪里不对。",
+      "description": "AI 自动补全了一段正则代码，但逻辑可能存在死循环。",
       "options": [
         {
-          "text": "不管了，AI 总不会害我，直接 Commit。",
+          "text": "直接 Commit",
           "effect": { "money": 0, "mental": 10, "competence": -10, "slacking": 20 },
-          "reaction": "线上环境瞬间崩溃。原来那段正则会导致 CPU 100%。你不得不连夜回滚代码，精神极度疲惫。",
-          "insight": "【AI 生存指南】AI 是个优秀的秘书，但不是合格的架构师。永远不要部署你自己看不懂的代码。"
+          "reaction": "线上崩溃，你连夜回滚。",
+          "insight": "永远不要部署你看不懂的代码。"
         },
         {
-          "text": "手动重写：AI 只是辅助，逻辑还是得自己来。",
+          "text": "手动重写",
           "effect": { "money": 0, "mental": -20, "competence": 15, "slacking": -10 },
-          "reaction": "虽然多花了两小时，但你发现 AI 的逻辑确实有坑。老板路过看你还在写代码，表扬你‘态度端正’。",
-          "insight": "【技术干货】AI 幻觉 (Hallucination) 是目前大模型的通病，尤其在处理边界条件时，一定要人工 Review。"
+          "reaction": "多花了时间，但规避了灾难。",
+          "insight": "AI 幻觉是程序员的大敌。"
         }
       ]
-    },
+    }
+  ],
+  "doctor": [
     {
-      "id": "fs_ai_002",
-      "title": "API 账单惊魂",
-      "description": "你为了测试新出的 LLM 模型，把公司的生产数据库导进去跑了个全表分析。第二天早上，老板拿着 5000 美元的账单推开了你的房门。",
+      "id": "doc_001",
+      "title": "连轴转手术",
+      "description": "你已经连续工作 24 小时，现在有一台突发急诊手术需要你上台。",
       "options": [
         {
-          "text": "甩锅给模型：这个模型太笨了，它自己递归调用了，我也是受害者！",
-          "effect": { "money": -500, "mental": -40, "competence": -20, "slacking": 0 },
-          "reaction": "老板不信，并从你的奖金里扣了 500 块。你的职场信誉扫地。",
-          "insight": "【职场法则】在生产环境调用昂贵 API 时，一定要设置‘熔断机制’或‘最大配额’，这是高级开发的常识。"
+          "text": "喝两罐红牛，硬扛上台。",
+          "effect": { "money": 500, "mental": -40, "competence": 20, "slacking": 0 },
+          "reaction": "手术很成功，但你下台时差点晕倒。你赚到了辛苦费。",
+          "insight": "【行业真相】医生的精力和病人的安全是一场微妙的博弈。"
         },
         {
-          "text": "展示价值：虽然贵，但我跑出了竞品的底层逻辑，这能省下半年的调研费。",
-          "effect": { "money": 1000, "mental": 0, "competence": 30, "slacking": -5 },
-          "reaction": "老板被你忽悠住了，觉得这钱花得值，甚至额外奖励了你 1000 元项目奖金。",
-          "insight": "【沟通技巧】成本不重要，‘产出比’才重要。学会把意外支出包装成‘战略投入’。"
+          "text": "评估状态，请求二线医生接替。",
+          "effect": { "money": 0, "mental": 10, "competence": -10, "slacking": 0 },
+          "reaction": "你休息了，虽然被主任批评‘不够拼’，但你保证了手术质量。",
+          "insight": "【职场法则】在医疗行业，承认自己的极限也是一种负责。"
         }
       ]
-    },
+    }
+  ],
+  "hotel_owner": [
     {
-      "id": "fs_003",
-      "title": "消失的 Bug",
-      "description": "你重启了一下服务器，Bug 消失了。此时产品经理过来问你原因。",
+      "id": "hotel_001",
+      "title": "奇葩差评",
+      "description": "客人投诉说房间里的空调声音太大，吵到了他的仓鼠睡觉，要求免单并赔偿。",
       "options": [
         {
-          "text": "诚实回答：我也不知道，反正现在好了。",
-          "effect": { "money": 0, "mental": -10, "competence": -5, "slacking": 0 },
-          "reaction": "产品经理露出了关爱智障的眼神。并在周会上暗示你技术不稳。",
-          "insight": "【职场法则】即使是重启解决的，也要说成是‘优化了偶发性的资源竞态问题’。"
+          "text": "息事宁人，直接免单并赠送早餐券。",
+          "effect": { "money": -300, "mental": -10, "competence": -5, "slacking": 0 },
+          "reaction": "客人满意了，但你觉得尊严受到了践踏。",
+          "insight": "【经营之道】过度的妥协有时会招来更多的职业差评师。"
         },
         {
-          "text": "装深沉：这是一个复杂的并发问题，我已经规避了它。",
-          "effect": { "money": 0, "mental": 0, "competence": 10, "slacking": 5 },
-          "reaction": "产品经理虽然听不懂，但觉得你很牛。他甚至主动提出下午的会议你可以不用参加了。",
-          "insight": "【硬核科普】什么是幂等性？确保同一个操作无论执行多少次，结果都是一致的。"
+          "text": "硬刚到底：拿出噪音分贝测试仪证明正常，拒绝免单。",
+          "effect": { "money": 0, "mental": -20, "competence": 15, "slacking": 0 },
+          "reaction": "客人发了差评，但你维护了酒店的原则。其他客人留言支持你。",
+          "insight": "【公关技巧】有理有据的反击，比一味的道歉更能赢得尊重。"
         }
       ]
-    },
+    }
+  ],
+  "pro_runner": [
     {
-      "id": "fs_004",
-      "title": "技术选型争论",
-      "description": "架构评审会上，同事想用最新的 Rust 重构核心模块，但你觉得现在的 Node.js 还能再抗两年。",
+      "id": "run_001",
+      "title": "伤病警报",
+      "description": "大赛在即，你的半月板隐隐作痛。队医建议你保守治疗，暂停高强度训练。",
       "options": [
         {
-          "text": "支持重构：人生苦短，必须玩点潮的！",
-          "effect": { "money": 0, "mental": -30, "competence": 40, "slacking": -20 },
-          "reaction": "重构过程中遇到无数坑，你每天加班到两点。但你的简历变漂亮了，大厂 Offer 正在路上。",
-          "insight": "【职业规划】拿公司的钱学最新的技术，这是程序员性价比最高的‘摸鱼’。"
+          "text": "打封闭针强行参赛，为了梦想拼一把！",
+          "effect": { "money": 1000, "mental": -50, "competence": 30, "slacking": -10 },
+          "reaction": "你拿到了名次，但你的运动生涯可能因此缩短三年。",
+          "insight": "【职业代价】职业运动员的奖牌背后往往是身体的透支。"
         },
         {
-          "text": "保守防御：稳字当头，不要制造没必要的复杂度。",
-          "effect": { "money": 200, "mental": 20, "competence": 5, "slacking": 10 },
-          "reaction": "系统稳定运行。你每天准时下班，甚至有空在闲鱼上接了两个私活赚钱。",
-          "insight": "【生存哲学】KISS 原则 (Keep It Simple, Stupid)。最快的代码就是不写的代码。"
+          "text": "听从建议，退赛休养。",
+          "effect": { "money": -500, "mental": 20, "competence": -10, "slacking": 20 },
+          "reaction": "你错过了比赛，奖金告吹，但你保护了未来。",
+          "insight": "【心态建设】留得青山在，不怕没柴烧。运动生涯是长跑，不是冲刺。"
         }
       ]
-    },
+    }
+  ],
+  "chem_athlete": [
     {
-      "id": "fs_005",
-      "title": "那是我写注释吗？",
-      "description": "你翻开一年前写的代码，里面有一行注释：‘这段代码虽然跑得通，但我不知道为什么。千万别动它。’ 现在，你必须动它了。",
+      "id": "chem_001",
+      "title": "实验爆炸",
+      "description": "你在提取有机物时，因为通风橱操作失误引发了小型爆燃，实验室警报大作。",
       "options": [
         {
-          "text": "大力出奇迹：重构整个函数！",
-          "effect": { "money": 0, "mental": -50, "competence": 20, "slacking": -30 },
-          "reaction": "你陷入了为期三天的‘修一个 Bug 产生十个 Bug’的死循环。精神状态濒临崩溃。",
-          "insight": "【技术干货】这叫‘祖传代码’。面对不可名状的代码，最好的办法是加一层适配器，而不是直接拆了它。"
+          "text": "第一时间断电、灭火，保护实验数据。",
+          "effect": { "money": -200, "mental": -30, "competence": 20, "slacking": 0 },
+          "reaction": "数据保住了，虽然赔了仪器钱，但你的专业素养得到了教授认可。",
+          "insight": "【硬核科普】在化学实验室，冷却是处理大多数放热反应失控的第一要义。"
         },
         {
-          "text": "屎山堆砌：在旁边加一个 if-else，保证这次逻辑通就行。",
-          "effect": { "money": 0, "mental": 10, "competence": -10, "slacking": 20 },
-          "reaction": "功能上线了，无事发生。虽然你感觉良心有点痛，但今晚可以早点睡觉了。",
-          "insight": "【职场现实】很多伟大的互联网公司，底层其实都是由无数个 if-else 支撑起来的。"
+          "text": "直接撤离，命最重要！",
+          "effect": { "money": -1000, "mental": 10, "competence": -20, "slacking": 0 },
+          "reaction": "实验室烧了一半。虽然你没事，但你被勒令停赛反省。",
+          "insight": "【实验室安全】保命是对的，但预判风险并规避才是职业竞赛生的基本功。"
+        }
+      ]
+    }
+  ],
+  "uni_student": [
+    {
+      "id": "uni_001",
+      "title": "选修课点名",
+      "description": "早八的选修课，你正躲在被子里。舍友发来消息说老师今天要点名，占比期末 20%。",
+      "options": [
+        {
+          "text": "光速起床，不洗脸直接冲向教室。",
+          "effect": { "money": 0, "mental": -30, "competence": 10, "slacking": -20 },
+          "reaction": "你踩点进入教室。老师点到了你的名字，你感觉魂儿还没跟上来。",
+          "insight": "【大学生存】早八是大学生身体和灵魂的分水岭。"
+        },
+        {
+          "text": "给舍友发个 5 块钱红包，让他帮忙答到。",
+          "effect": { "money": -5, "mental": 20, "competence": -10, "slacking": 30 },
+          "reaction": "蒙混过关。你继续睡到了中午，但良心有点不安。",
+          "insight": "【风险评估】代答到一旦被抓，不仅是平时分，更是诚信档次的问题。"
+        }
+      ]
+    }
+  ],
+  "mid_student": [
+    {
+      "id": "mid_001",
+      "title": "没完没了的卷子",
+      "description": "周末你要完成 8 张试卷。此时朋友邀请你打一把‘农药’。",
+      "options": [
+        {
+          "text": "拒绝诱惑，埋头刷题。",
+          "effect": { "money": 0, "mental": -40, "competence": 25, "slacking": -20 },
+          "reaction": "你写完了卷子，感觉自己已经是一个莫得感情的刷题机器。",
+          "insight": "【提分技巧】刷题能提分，但总结错题才是刷题的灵魂。"
+        },
+        {
+          "text": "打一把就写！结果打了一下午。",
+          "effect": { "money": 0, "mental": 50, "competence": -20, "slacking": 40 },
+          "reaction": "游戏赢了，但晚上你在灯下补作业哭出了声。",
+          "insight": "【时间管理】在中学时代，‘只打一把’是世界上最大的谎言。"
+        }
+      ]
+    }
+  ],
+  "pri_student": [
+    {
+      "id": "pri_001",
+      "title": "被没收的玩具",
+      "description": "你在上数学课时玩‘萝卜刀’，被老师发现了。",
+      "options": [
+        {
+          "text": "乖乖上交，并写一份 100 字检讨。",
+          "effect": { "money": 0, "mental": -50, "competence": 5, "slacking": -10 },
+          "reaction": "老师原谅了你，但你心爱的玩具进了‘办公室黑洞’。",
+          "insight": "【童年教训】永远不要在班主任的眼皮底下测试她的视力。"
+        },
+        {
+          "text": "谎称是帮同学收的，试图蒙混过关。",
+          "effect": { "money": 0, "mental": 10, "competence": -15, "slacking": 20 },
+          "reaction": "老师没追究，但看你的眼神变了。你学会了不该有的技能。",
+          "insight": "【成长提示】诚实是小学时代最高级的属性点。"
         }
       ]
     }

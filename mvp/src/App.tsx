@@ -37,6 +37,15 @@ interface Profession {
   }
 }
 
+// 模拟排行榜数据
+const MOCK_LEADERBOARD = [
+  { name: "卷王之王", score: 156, prof: "全栈开发" },
+  { name: "手术室钉子户", score: 142, prof: "外科医生" },
+  { name: "五三战神", score: 128, prof: "中学学生" },
+  { name: "退役熬夜选手", score: 98, prof: "大学学生" },
+  { name: "资本家本尊", score: 85, prof: "酒店老板" }
+]
+
 export default function App() {
   const [profession, setProfession] = useState<Profession | null>(null)
   const [stats, setStats] = useState({
@@ -50,6 +59,7 @@ export default function App() {
   const [currentEvent, setCurrentEvent] = useState<Event | null>(null)
   const [feedback, setFeedback] = useState<{ text: string; insight: string } | null>(null)
   const [isGameOver, setIsGameOver] = useState(false)
+  const [showLeaderboard, setShowLeaderboard] = useState(false)
 
   const selectProfession = (p: Profession) => {
     setProfession(p)
@@ -60,6 +70,7 @@ export default function App() {
   const getNextEvent = (profId: string) => {
     const allEvents = eventsData as Record<string, Event[]>
     const profEvents = allEvents[profId] || []
+    if (profEvents.length === 0) return
     const randomEvent = profEvents[Math.floor(Math.random() * profEvents.length)]
     setCurrentEvent(randomEvent)
   }
@@ -86,22 +97,44 @@ export default function App() {
     if (!isGameOver && profession) getNextEvent(profession.id)
   }
 
+  // 首页职业选择 + 排行榜
   if (!profession) {
     return (
       <div className="game-container selection-screen">
         <h1 className="title">职业挑战者</h1>
         <p className="subtitle">选择你的角色，开始生存博弈</p>
-        <div className="prof-list">
-          {profData.professions.map((p: Profession) => (
-            <div key={p.id} className="prof-card" onClick={() => selectProfession(p)}>
-              <div className="prof-avatar">{p.avatar}</div>
-              <div className="prof-info">
-                <h3>{p.name}</h3>
-                <p>{p.description}</p>
-              </div>
-            </div>
-          ))}
+        
+        <div className="main-tabs">
+          <button className={`tab-btn ${!showLeaderboard ? 'active' : ''}`} onClick={() => setShowLeaderboard(false)}>角色选择</button>
+          <button className={`tab-btn ${showLeaderboard ? 'active' : ''}`} onClick={() => setShowLeaderboard(true)}>全国榜单</button>
         </div>
+
+        {!showLeaderboard ? (
+          <div className="prof-list">
+            {profData.professions.map((p: Profession) => (
+              <div key={p.id} className="prof-card" onClick={() => selectProfession(p)}>
+                <div className="prof-avatar">{p.avatar}</div>
+                <div className="prof-info">
+                  <h3>{p.name}</h3>
+                  <p>{p.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="leaderboard-list">
+            {MOCK_LEADERBOARD.map((item, i) => (
+              <div key={i} className="leader-item">
+                <span className="rank">#{i+1}</span>
+                <div className="leader-info">
+                  <strong>{item.name}</strong>
+                  <span>{item.prof}</span>
+                </div>
+                <div className="leader-score">{item.score} 天</div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     )
   }
@@ -112,8 +145,9 @@ export default function App() {
         <div className="over-content">
           <h1>GAME OVER</h1>
           <p className="big-day">存活天数: {stats.day}</p>
+          <div className="final-avatar">{profession.avatar}</div>
           <p>{stats.money <= 0 ? "你已经身无分文。" : "你的精神已经彻底崩溃。"}</p>
-          <button className="restart-btn" onClick={() => window.location.reload()}>重新开始</button>
+          <button className="restart-btn" onClick={() => window.location.reload()}>重新投胎</button>
         </div>
       </div>
     )
@@ -128,6 +162,11 @@ export default function App() {
         <StatBar label="❤️ 精神" value={stats.mental} max={100} color="#ff6b6b" />
         <StatBar label="💼 能力" value={stats.competence} max={200} color="#4dabf7" />
         <StatBar label="🐟 摸鱼" value={stats.slacking} max={100} color="#51cf66" />
+      </div>
+
+      <div className="mini-profile">
+        <span>{profession.avatar} {profession.name}</span>
+        <small>{profession.outfit}</small>
       </div>
 
       {currentEvent && (

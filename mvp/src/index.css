@@ -2,10 +2,10 @@
   --bg-color: #f0f4f8;
   --card-bg: #ffffff;
   --primary-black: #1a1a1a;
-  --money-color: #ffdeeb; /* 浅粉 */
-  --mental-color: #ff6b6b; /* 珊瑚红 */
-  --comp-color: #4dabf7; /* 电光蓝 */
-  --slack-color: #51cf66; /* 活力绿 */
+  --money-color: #ffdeeb;
+  --mental-color: #ff6b6b;
+  --comp-color: #4dabf7;
+  --slack-color: #51cf66;
   --border-width: 3px;
   --shadow-offset: 6px;
 }
@@ -35,15 +35,93 @@ body {
   padding: 20px;
   box-sizing: border-box;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
-/* 状态栏：新丑风进度条 */
+/* Tab 切换 */
+.main-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid var(--primary-black);
+  background: #eee;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: var(--primary-black);
+  color: white;
+  box-shadow: 2px 2px 0px #888;
+}
+
+/* 排行榜样式 */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.leader-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid var(--primary-black);
+  background: #fdfdfd;
+  gap: 15px;
+}
+
+.rank {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ff6b6b;
+  min-width: 40px;
+}
+
+.leader-info { flex: 1; display: flex; flex-direction: column; }
+.leader-info strong { font-size: 16px; }
+.leader-info span { font-size: 12px; color: #666; }
+.leader-score { font-weight: 900; font-size: 18px; }
+
+/* 职业选择卡片 */
+.prof-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.prof-card {
+  border: var(--border-width) solid var(--primary-black);
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.prof-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--primary-black);
+  background: #f8f9fa;
+}
+
+.prof-avatar { font-size: 32px; }
+.prof-info h3 { margin: 0; font-size: 16px; font-weight: 800; }
+.prof-info p { margin: 3px 0 0; font-size: 11px; color: #555; line-height: 1.3; }
+
+/* 游戏内 UI */
 .status-bar {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .stat-item {
@@ -51,23 +129,32 @@ body {
   align-items: center;
   gap: 10px;
   font-weight: 800;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .stat-bar-bg {
   flex: 1;
-  height: 12px;
+  height: 10px;
   background: #eee;
   border: 2px solid var(--primary-black);
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
 }
 
-.stat-fill {
-  height: 100%;
-  transition: width 0.3s ease;
+.stat-fill { height: 100%; transition: width 0.3s ease; }
+
+.mini-profile {
+  background: #eee;
+  padding: 8px 12px;
+  border: 2px solid var(--primary-black);
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
 }
 
+/* 核心展示 */
 .day-badge {
   background: var(--primary-black);
   color: white;
@@ -78,142 +165,44 @@ body {
   margin-bottom: 10px;
 }
 
-/* 职业选择 */
-.selection-screen {
-  text-align: left;
-}
-
-.title {
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 5px;
-  line-height: 1;
-}
-
-.subtitle {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 30px;
-}
-
-.prof-card {
-  border: var(--border-width) solid var(--primary-black);
-  padding: 15px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  transition: all 0.2s;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.prof-card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 4px 4px 0px var(--primary-black);
-}
-
-.prof-avatar { font-size: 32px; }
-.prof-info h3 { margin: 0; font-size: 18px; font-weight: 800; }
-.prof-info p { margin: 5px 0 0; font-size: 12px; color: #555; }
-
-/* 事件卡片 */
-.event-card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.event-header h2 {
-  font-size: 24px;
-  font-weight: 900;
-  margin: 10px 0;
-}
-
-.desc {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  flex: 1;
-}
+.event-card { flex: 1; display: flex; flex-direction: column; }
+.event-header h2 { font-size: 22px; font-weight: 900; margin: 5px 0 10px; }
+.desc { font-size: 15px; line-height: 1.5; color: #333; flex: 1; }
 
 .opt-btn {
   background: white;
   border: var(--border-width) solid var(--primary-black);
-  padding: 15px;
+  padding: 12px;
   font-weight: 800;
-  font-size: 15px;
+  font-size: 14px;
   text-align: left;
   cursor: pointer;
   transition: all 0.1s;
   box-shadow: 4px 4px 0px var(--primary-black);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.opt-btn:hover {
-  background: #f8f9fa;
-}
+.opt-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0px var(--primary-black); }
 
-.opt-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px var(--primary-black);
-}
-
-/* 弹窗 */
+/* 弹窗与结束 */
 .modal-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(255,255,255,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; backdrop-filter: blur(4px); z-index: 100;
 }
 
 .modal {
-  background: #fff;
-  border: var(--border-width) solid var(--primary-black);
-  padding: 25px;
-  box-shadow: 8px 8px 0px var(--primary-black);
-  width: 100%;
+  background: #fff; border: var(--border-width) solid var(--primary-black);
+  padding: 20px; box-shadow: 8px 8px 0px var(--primary-black); width: 100%;
 }
 
-.modal h3 { font-weight: 900; margin-top: 0; }
+.insight-box { background: #fff9db; border: 2px solid var(--primary-black); padding: 12px; margin: 15px 0; font-size: 13px; }
 
-.insight-box {
-  background: #fff9db;
-  border: 2px solid var(--primary-black);
-  padding: 15px;
-  margin: 20px 0;
-  font-size: 14px;
-}
+.next-day-btn { width: 100%; padding: 12px; background: var(--primary-black); color: white; border: none; font-weight: 800; cursor: pointer; }
 
-.next-day-btn {
-  width: 100%;
-  padding: 15px;
-  background: var(--primary-black);
-  color: white;
-  border: none;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-/* 游戏结束 */
-.game-over {
-  background: #ff6b6b;
-  color: white;
-}
-
-.over-content {
-  border: 10px solid white;
-  padding: 40px;
-}
-
-.restart-btn {
-  background: white;
-  color: black;
-  border: 4px solid black;
-  font-weight: 900;
-  padding: 15px 30px;
-}
+.game-over { background: #ff6b6b; color: white; text-align: center; justify-content: center; }
+.over-content h1 { font-size: 40px; font-weight: 900; margin: 0; }
+.final-avatar { font-size: 64px; margin: 20px 0; }
+.restart-btn { background: white; color: black; border: 3px solid black; font-weight: 900; padding: 12px 24px; cursor: pointer; margin-top: 20px; }

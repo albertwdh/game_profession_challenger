@@ -6,38 +6,63 @@
       "avatar": "👨‍💻",
       "outfit": "格子衬衫 + 防脱发洗发水",
       "description": "精通各种框架的安装与卸载，擅长在 Stack Overflow 寻找 Bug 解决方案。",
-      "initialStats": {
-        "money": 2000,
-        "mental": 100,
-        "competence": 20,
-        "slacking": 0
-      }
+      "initialStats": { "money": 2000, "mental": 100, "competence": 20, "slacking": 0 }
     },
     {
-      "id": "new_media",
-      "name": "新媒体运营",
-      "avatar": "🤳",
-      "outfit": "手持云台 + 提神咖啡",
-      "description": "追逐热点的猎人，为了 10w+ 可以献祭自己的发际线。",
-      "initialStats": {
-        "money": 1500,
-        "mental": 120,
-        "competence": 15,
-        "slacking": 10
-      }
+      "id": "doctor",
+      "name": "外科医生",
+      "avatar": "👨‍⚕️",
+      "outfit": "白大褂 + 浓缩咖啡",
+      "description": "在手术室和值班室之间反复横跳，试图用咖啡因战胜生物钟。",
+      "initialStats": { "money": 3000, "mental": 80, "competence": 50, "slacking": 0 }
     },
     {
-      "id": "newbie",
-      "name": "职场萌新",
-      "avatar": "🐣",
-      "outfit": "空白简历 + 清澈的眼神",
-      "description": "整顿职场的希望，擅长在开会时表演‘认真记录’。",
-      "initialStats": {
-        "money": 500,
-        "mental": 150,
-        "competence": 5,
-        "slacking": 0
-      }
+      "id": "hotel_owner",
+      "name": "酒店老板",
+      "avatar": "🏨",
+      "outfit": "定制西装 + 24小时开机的手机",
+      "description": "每天处理奇葩客人的投诉，梦想是有一天能关机睡觉。",
+      "initialStats": { "money": 10000, "mental": 100, "competence": 30, "slacking": 10 }
+    },
+    {
+      "id": "pro_runner",
+      "name": "职业跑步运动员",
+      "avatar": "🏃",
+      "outfit": "碳板跑鞋 + 筋膜枪",
+      "description": "呼吸的每一口空气都是为了更快的配速，膝盖是唯一的信仰。",
+      "initialStats": { "money": 1200, "mental": 120, "competence": 10, "slacking": 5 }
+    },
+    {
+      "id": "chem_athlete",
+      "name": "职业化学竞赛生",
+      "avatar": "🧪",
+      "outfit": "护目镜 + 实验报告本",
+      "description": "在烧杯中寻找真理，在配平中消耗青春。",
+      "initialStats": { "money": 500, "mental": 90, "competence": 40, "slacking": 5 }
+    },
+    {
+      "id": "uni_student",
+      "name": "大学学生",
+      "avatar": "🎓",
+      "outfit": "平板电脑 + 冰美式",
+      "description": "在‘ddl前一天’爆发出的战斗力足以拯救银河系。",
+      "initialStats": { "money": 800, "mental": 130, "competence": 10, "slacking": 40 }
+    },
+    {
+      "id": "mid_student",
+      "name": "中学学生",
+      "avatar": "🎒",
+      "outfit": "五年高考三年模拟",
+      "description": "每天睡眠时间不足6小时，却能背下整个元素周期表。",
+      "initialStats": { "money": 200, "mental": 100, "competence": 30, "slacking": 10 }
+    },
+    {
+      "id": "pri_student",
+      "name": "小学学生",
+      "avatar": "👦",
+      "outfit": "红领巾 + 电话手表",
+      "description": "只要写完作业，世界就是美好的。最大的敌人是奥数。",
+      "initialStats": { "money": 50, "mental": 180, "competence": 5, "slacking": 20 }
     }
   ]
 }
