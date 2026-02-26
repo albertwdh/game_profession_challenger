@@ -1,168 +1,105 @@
 {
   "fullstack_dev": [
     {
-      "id": "fs_ai_001",
-      "title": "Copilot 的“投毒”",
-      "description": "AI 自动补全了一段正则代码，但逻辑可能存在死循环。",
+      "id": "fs_001",
+      "title": "AI 写的周报",
+      "description": "你用 GPT 写的周报里忘记删掉‘作为一个 AI 语言模型...’这句话，被老板在全员邮件里转发了。",
       "options": [
         {
-          "text": "直接 Commit",
-          "effect": { "money": 0, "mental": 10, "competence": -10, "slacking": 20 },
-          "reaction": "线上崩溃，你连夜回滚。",
-          "insight": "永远不要部署你看不懂的代码。"
+          "text": "承认：我在测试公司内部大模型的边界。",
+          "effect": { "money": 0, "mental": -20, "competence": 10, "slacking": 30 },
+          "reaction": "老板觉得你在认真‘测 Bug’，甚至让你写一份 AI 办公提效报告。你又得加班了。",
+          "insight": "【职场法则】最高级的摸鱼是把‘摸鱼过程’包装成‘技术调研’。"
         },
         {
-          "text": "手动重写",
-          "effect": { "money": 0, "mental": -20, "competence": 15, "slacking": -10 },
-          "reaction": "多花了时间，但规避了灾难。",
-          "insight": "AI 幻觉是程序员的大敌。"
+          "text": "死撑：这是我的赛博座右铭，时刻提醒自己不要像机器一样思考。",
+          "effect": { "money": 0, "mental": 10, "competence": -20, "slacking": 10 },
+          "reaction": "老板觉得你精神状态不稳定，默默调低了你的绩效等级。",
+          "insight": "【沟通技巧】当你的借口过于离谱，别人就不再是怀疑你的能力，而是怀疑你的神志。"
         }
       ]
     }
   ],
   "doctor": [
     {
-      "id": "doc_001",
-      "title": "连轴转手术",
-      "description": "你已经连续工作 24 小时，现在有一台突发急诊手术需要你上台。",
+      "id": "doc_002",
+      "title": "AI 辅助诊断",
+      "description": "患者拿着小红书的‘自诊结果’和你吵架，说 AI 建议他切除阑尾，而你只让他多喝水。",
       "options": [
         {
-          "text": "喝两罐红牛，硬扛上台。",
-          "effect": { "money": 500, "mental": -40, "competence": 20, "slacking": 0 },
-          "reaction": "手术很成功，但你下台时差点晕倒。你赚到了辛苦费。",
-          "insight": "【行业真相】医生的精力和病人的安全是一场微妙的博弈。"
+          "text": "耐心科普：AI 还没学会区分‘阑尾炎’和‘吃撑了’。",
+          "effect": { "money": 0, "mental": -30, "competence": 20, "slacking": 0 },
+          "reaction": "患者投诉你‘态度生硬’。但你保住了他的阑尾和你的职业操守。",
+          "insight": "【行业痛点】现代医学最大的挑战不是病毒，而是搜索引擎后的‘自我诊断’。"
         },
         {
-          "text": "评估状态，请求二线医生接替。",
-          "effect": { "money": 0, "mental": 10, "competence": -10, "slacking": 0 },
-          "reaction": "你休息了，虽然被主任批评‘不够拼’，但你保证了手术质量。",
-          "insight": "【职场法则】在医疗行业，承认自己的极限也是一种负责。"
-        }
-      ]
-    }
-  ],
-  "hotel_owner": [
-    {
-      "id": "hotel_001",
-      "title": "奇葩差评",
-      "description": "客人投诉说房间里的空调声音太大，吵到了他的仓鼠睡觉，要求免单并赔偿。",
-      "options": [
-        {
-          "text": "息事宁人，直接免单并赠送早餐券。",
-          "effect": { "money": -300, "mental": -10, "competence": -5, "slacking": 0 },
-          "reaction": "客人满意了，但你觉得尊严受到了践踏。",
-          "insight": "【经营之道】过度的妥协有时会招来更多的职业差评师。"
-        },
-        {
-          "text": "硬刚到底：拿出噪音分贝测试仪证明正常，拒绝免单。",
-          "effect": { "money": 0, "mental": -20, "competence": 15, "slacking": 0 },
-          "reaction": "客人发了差评，但你维护了酒店的原则。其他客人留言支持你。",
-          "insight": "【公关技巧】有理有据的反击，比一味的道歉更能赢得尊重。"
-        }
-      ]
-    }
-  ],
-  "pro_runner": [
-    {
-      "id": "run_001",
-      "title": "伤病警报",
-      "description": "大赛在即，你的半月板隐隐作痛。队医建议你保守治疗，暂停高强度训练。",
-      "options": [
-        {
-          "text": "打封闭针强行参赛，为了梦想拼一把！",
-          "effect": { "money": 1000, "mental": -50, "competence": 30, "slacking": -10 },
-          "reaction": "你拿到了名次，但你的运动生涯可能因此缩短三年。",
-          "insight": "【职业代价】职业运动员的奖牌背后往往是身体的透支。"
-        },
-        {
-          "text": "听从建议，退赛休养。",
-          "effect": { "money": -500, "mental": 20, "competence": -10, "slacking": 20 },
-          "reaction": "你错过了比赛，奖金告吹，但你保护了未来。",
-          "insight": "【心态建设】留得青山在，不怕没柴烧。运动生涯是长跑，不是冲刺。"
-        }
-      ]
-    }
-  ],
-  "chem_athlete": [
-    {
-      "id": "chem_001",
-      "title": "实验爆炸",
-      "description": "你在提取有机物时，因为通风橱操作失误引发了小型爆燃，实验室警报大作。",
-      "options": [
-        {
-          "text": "第一时间断电、灭火，保护实验数据。",
-          "effect": { "money": -200, "mental": -30, "competence": 20, "slacking": 0 },
-          "reaction": "数据保住了，虽然赔了仪器钱，但你的专业素养得到了教授认可。",
-          "insight": "【硬核科普】在化学实验室，冷却是处理大多数放热反应失控的第一要义。"
-        },
-        {
-          "text": "直接撤离，命最重要！",
-          "effect": { "money": -1000, "mental": 10, "competence": -20, "slacking": 0 },
-          "reaction": "实验室烧了一半。虽然你没事，但你被勒令停赛反省。",
-          "insight": "【实验室安全】保命是对的，但预判风险并规避才是职业竞赛生的基本功。"
+          "text": "顺着他说：行，那按 AI 说的，我们去手术室？",
+          "effect": { "money": 500, "mental": 10, "competence": -30, "slacking": 20 },
+          "reaction": "患者被吓跑了。你甚至因为‘幽默风趣’得到了其他病人的好评。",
+          "insight": "【生存哲学】有时候，面对无理取闹，最高级的反击是‘比他更离谱’。"
         }
       ]
     }
   ],
   "uni_student": [
     {
-      "id": "uni_001",
-      "title": "选修课点名",
-      "description": "早八的选修课，你正躲在被子里。舍友发来消息说老师今天要点名，占比期末 20%。",
+      "id": "uni_002",
+      "title": "毕业论文查重",
+      "description": "你的论文查重率 0.1%，导师怀疑你是找了最新的 AI 生成器重写的，因为‘这不像人类能写出的枯燥’。",
       "options": [
         {
-          "text": "光速起床，不洗脸直接冲向教室。",
-          "effect": { "money": 0, "mental": -30, "competence": 10, "slacking": -20 },
-          "reaction": "你踩点进入教室。老师点到了你的名字，你感觉魂儿还没跟上来。",
-          "insight": "【大学生存】早八是大学生身体和灵魂的分水岭。"
+          "text": "愤而反击：这就是我自己一个字一个字熬出来的枯燥！",
+          "effect": { "money": 0, "mental": -40, "competence": 30, "slacking": -10 },
+          "reaction": "导师被你的‘真诚’打动了。你通过了答辩，但对学术失去了最后的兴趣。",
+          "insight": "【硬核科普】查重算法 (SimHash) 的本质是计算文本指纹。为了降重而改写的文字，往往比 AI 更有‘机感’。"
         },
         {
-          "text": "给舍友发个 5 块钱红包，让他帮忙答到。",
-          "effect": { "money": -5, "mental": 20, "competence": -10, "slacking": 30 },
-          "reaction": "蒙混过关。你继续睡到了中午，但良心有点不安。",
-          "insight": "【风险评估】代答到一旦被抓，不仅是平时分，更是诚信档次的问题。"
+          "text": "由于心虚，选择再用另一个 AI 进行‘降 AI 化’改写。",
+          "effect": { "money": -50, "mental": -10, "competence": -20, "slacking": 40 },
+          "reaction": "论文逻辑彻底崩塌。导师看完后建议你延期毕业，去做心理咨询。",
+          "insight": "【赛博讽刺】用 AI 去改写 AI 生成的内容，是这个时代最高效的‘智力负增长’。"
         }
       ]
     }
   ],
-  "mid_student": [
+  "chem_athlete": [
     {
-      "id": "mid_001",
-      "title": "没完没了的卷子",
-      "description": "周末你要完成 8 张试卷。此时朋友邀请你打一把‘农药’。",
+      "id": "chem_002",
+      "title": "科研经费的去向",
+      "description": "实验室拿到了一笔 10 万的‘人工智能化学实验室’经费。主任决定用它来买一台全自动手冲咖啡机和一套顶配人体工学椅。",
       "options": [
         {
-          "text": "拒绝诱惑，埋头刷题。",
-          "effect": { "money": 0, "mental": -40, "competence": 25, "slacking": -20 },
-          "reaction": "你写完了卷子，感觉自己已经是一个莫得感情的刷题机器。",
-          "insight": "【提分技巧】刷题能提分，但总结错题才是刷题的灵魂。"
+          "text": "支持！这提高了实验室的‘智力转化效率’。",
+          "effect": { "money": 0, "mental": 40, "competence": -10, "slacking": 30 },
+          "reaction": "你的腰椎得到了拯救。虽然没发论文，但你们实验室成为了全校的‘咖啡中心’。",
+          "insight": "【科研真相】很多名为‘创新’的经费，最终都转化为了科研人员的‘基本生存保障’。"
         },
         {
-          "text": "打一把就写！结果打了一下午。",
-          "effect": { "money": 0, "mental": 50, "competence": -20, "slacking": 40 },
-          "reaction": "游戏赢了，但晚上你在灯下补作业哭出了声。",
-          "insight": "【时间管理】在中学时代，‘只打一把’是世界上最大的谎言。"
+          "text": "正直：应该买一台高配 GPU 服务器跑模拟。",
+          "effect": { "money": 0, "mental": -30, "competence": 50, "slacking": -20 },
+          "reaction": "主任觉得你‘不懂变通’。服务器买回来了，但实验室经常跳闸，你天天在机房吃泡面。",
+          "insight": "【行业常识】GPU 模拟确实能加速科研，但前提是你们学校的变压器经得起折腾。"
         }
       ]
     }
   ],
-  "pri_student": [
+  "hotel_owner": [
     {
-      "id": "pri_001",
-      "title": "被没收的玩具",
-      "description": "你在上数学课时玩‘萝卜刀’，被老师发现了。",
+      "id": "hotel_002",
+      "title": "网红的零元购",
+      "description": "一个只有 500 粉丝的博主要求免费试住三天，理由是‘我会给你们带来源源不断的精准流量’。",
       "options": [
         {
-          "text": "乖乖上交，并写一份 100 字检讨。",
-          "effect": { "money": 0, "mental": -50, "competence": 5, "slacking": -10 },
-          "reaction": "老师原谅了你，但你心爱的玩具进了‘办公室黑洞’。",
-          "insight": "【童年教训】永远不要在班主任的眼皮底下测试她的视力。"
+          "text": "欣然接受：万一她火了呢？",
+          "effect": { "money": -1500, "mental": -20, "competence": -10, "slacking": 10 },
+          "reaction": "她拍了一组精美的自拍，然后定位错了酒店地址。你损失了三天的房费。",
+          "insight": "【商业常识】所谓的‘流量置换’，在大多数时候都是一场单方面的‘赛博乞讨’。"
         },
         {
-          "text": "谎称是帮同学收的，试图蒙混过关。",
-          "effect": { "money": 0, "mental": 10, "competence": -15, "slacking": 20 },
-          "reaction": "老师没追究，但看你的眼神变了。你学会了不该有的技能。",
-          "insight": "【成长提示】诚实是小学时代最高级的属性点。"
+          "text": "反向操作：让她先付钱，如果带货超过房费再退回。",
+          "effect": { "money": 0, "mental": 10, "competence": 20, "slacking": 0 },
+          "reaction": "博主气得发了避雷贴，结果因为话题度太高，你的酒店真的火了。",
+          "insight": "【营销悖论】在互联网时代，‘黑红’也是红，有时候被网红避雷是最好的广告。"
         }
       ]
     }
