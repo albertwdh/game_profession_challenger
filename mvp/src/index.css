@@ -1,247 +1,219 @@
 :root {
-  --bg-color: #c0c0c0;
-  --win-blue: #000080;
-  --win-white: #ffffff;
-  --win-gray: #808080;
+  --bg-color: #f0f4f8;
+  --card-bg: #ffffff;
+  --primary-black: #1a1a1a;
+  --money-color: #ffdeeb; /* 浅粉 */
+  --mental-color: #ff6b6b; /* 珊瑚红 */
+  --comp-color: #4dabf7; /* 电光蓝 */
+  --slack-color: #51cf66; /* 活力绿 */
+  --border-width: 3px;
+  --shadow-offset: 6px;
 }
 
 body {
-  font-family: 'SimSun', 'Courier New', Courier, monospace;
-  background-color: #3b6ea5; /* 经典的 Windows 95 背景色 */
-  color: #000;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
+  color: var(--primary-black);
 }
+
+#root { width: 100%; display: flex; justify-content: center; }
 
 .game-container {
-  width: 100%;
-  max-width: 450px;
-  height: 90vh;
-  background-color: var(--bg-color);
-  border: 4px solid;
-  border-color: #fff #808080 #808080 #fff;
+  width: 95%;
+  max-width: 420px;
+  height: 92vh;
+  background: white;
+  border: var(--border-width) solid var(--primary-black);
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--primary-black);
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding: 20px;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
 }
 
-/* 职业选择界面 */
-.selection-screen {
-  padding: 20px;
-  text-align: center;
-  overflow-y: auto;
-}
-
-.title {
-  color: var(--win-blue);
-  font-size: 28px;
-  text-shadow: 2px 2px #fff;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  background: #000;
-  color: #0f0;
-  padding: 5px;
-  font-size: 14px;
+/* 状态栏：新丑风进度条 */
+.status-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-bottom: 20px;
 }
 
-.prof-list {
+.stat-item {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 14px;
 }
 
-.prof-card {
-  background: #fff;
-  border: 3px inset #fff;
-  padding: 15px;
-  cursor: pointer;
-  transition: transform 0.1s;
+.stat-bar-bg {
+  flex: 1;
+  height: 12px;
+  background: #eee;
+  border: 2px solid var(--primary-black);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.prof-card:hover {
-  background: #e0e0e0;
-  transform: scale(1.02);
+.stat-fill {
+  height: 100%;
+  transition: width 0.3s ease;
 }
 
-.prof-avatar {
-  font-size: 40px;
-  margin-bottom: 5px;
-}
-
-.outfit-text {
-  font-size: 12px;
-  color: #666;
-  font-style: italic;
-}
-
-.prof-desc {
-  font-size: 13px;
-  margin-top: 10px;
-}
-
-/* 游戏内 UI */
-.status-bar {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2px;
-  background: #fff;
-  padding: 5px;
-  border: 2px inset #808080;
+.day-badge {
+  background: var(--primary-black);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  align-self: flex-start;
   font-size: 12px;
   margin-bottom: 10px;
 }
 
-.player-info {
-  background: var(--win-blue);
-  color: #fff;
-  padding: 5px 10px;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+/* 职业选择 */
+.selection-screen {
+  text-align: left;
 }
 
-.mini-avatar { font-size: 20px; }
-.outfit-tag { font-size: 11px; opacity: 0.8; }
+.title {
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 5px;
+  line-height: 1;
+}
 
-.event-card {
-  flex: 1;
-  border: 2px inset #fff;
-  padding: 20px;
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.prof-card {
+  border: var(--border-width) solid var(--primary-black);
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
   background: #fff;
   display: flex;
-  flex-direction: column;
-}
-
-.event-header {
-  display: flex;
   align-items: center;
-  gap: 10px;
-  border-bottom: 2px solid var(--win-blue);
-  margin-bottom: 15px;
+  gap: 15px;
 }
 
-.event-icon { font-size: 24px; }
-.event-card h2 { font-size: 18px; margin: 0; color: var(--win-blue); }
+.prof-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 4px 4px 0px var(--primary-black);
+}
 
-.desc { font-size: 15px; line-height: 1.6; flex: 1; }
+.prof-avatar { font-size: 32px; }
+.prof-info h3 { margin: 0; font-size: 18px; font-weight: 800; }
+.prof-info p { margin: 5px 0 0; font-size: 12px; color: #555; }
 
-.options {
+/* 事件卡片 */
+.event-card {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
+}
+
+.event-header h2 {
+  font-size: 24px;
+  font-weight: 900;
+  margin: 10px 0;
+}
+
+.desc {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  flex: 1;
 }
 
 .opt-btn {
-  padding: 10px;
-  background: var(--bg-color);
-  border: 2px solid;
-  border-color: #fff #808080 #808080 #fff;
+  background: white;
+  border: var(--border-width) solid var(--primary-black);
+  padding: 15px;
+  font-weight: 800;
+  font-size: 15px;
+  text-align: left;
   cursor: pointer;
-  font-family: inherit;
-  font-size: 14px;
+  transition: all 0.1s;
+  box-shadow: 4px 4px 0px var(--primary-black);
+  margin-bottom: 12px;
 }
 
-.opt-btn:hover { background: #d0d0d0; }
-.opt-btn:active { border-color: #808080 #fff #fff #808080; padding: 11px 9px 9px 11px; }
+.opt-btn:hover {
+  background: #f8f9fa;
+}
 
-/* 弹窗设计 (Win95 风格) */
+.opt-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--primary-black);
+}
+
+/* 弹窗 */
 .modal-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.9);
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  z-index: 100;
+  padding: 20px;
+  backdrop-filter: blur(4px);
 }
 
-.win-95-modal {
-  width: 90%;
-  max-width: 350px;
-  background: var(--bg-color);
-  border: 3px solid;
-  border-color: #fff #808080 #808080 #fff;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+.modal {
+  background: #fff;
+  border: var(--border-width) solid var(--primary-black);
+  padding: 25px;
+  box-shadow: 8px 8px 0px var(--primary-black);
+  width: 100%;
 }
 
-.modal-header {
-  background: var(--win-blue);
-  color: #fff;
-  padding: 3px 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-}
-
-.close-x {
-  background: var(--bg-color);
-  border: 1px solid #000;
-  width: 16px; height: 16px;
-  display: flex; justify-content: center; align-items: center;
-  cursor: pointer; font-size: 10px;
-}
-
-.modal-body { padding: 15px; }
+.modal h3 { font-weight: 900; margin-top: 0; }
 
 .insight-box {
-  background: #ffffe1;
-  border: 1px dashed #000;
-  padding: 12px;
-  margin: 15px 0;
-  font-size: 13px;
-  position: relative;
+  background: #fff9db;
+  border: 2px solid var(--primary-black);
+  padding: 15px;
+  margin: 20px 0;
+  font-size: 14px;
 }
 
 .next-day-btn {
   width: 100%;
-  padding: 8px;
-  background: var(--bg-color);
-  border: 2px solid;
-  border-color: #fff #808080 #808080 #fff;
-  font-weight: bold;
+  padding: 15px;
+  background: var(--primary-black);
+  color: white;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
 }
 
 /* 游戏结束 */
 .game-over {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: #000;
-  color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  z-index: 200;
+  background: #ff6b6b;
+  color: white;
 }
 
 .over-content {
-  border: 4px double red;
-  padding: 30px;
-  text-align: center;
-  max-width: 300px;
+  border: 10px solid white;
+  padding: 40px;
 }
 
-.big-day { font-size: 20px; font-weight: bold; }
-.final-avatar { font-size: 60px; margin: 20px 0; filter: grayscale(1); }
-.reason { color: #fff; font-size: 14px; margin-bottom: 30px; }
-
 .restart-btn {
-  background: red;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
+  background: white;
+  color: black;
+  border: 4px solid black;
+  font-weight: 900;
+  padding: 15px 30px;
 }
