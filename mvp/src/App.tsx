@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import eventsData from './events.json'
-import profData from './professions.json'
+import eventsData from './data/events.json'
+import profData from './data/professions.json'
 
 // 定义活动类型
 interface Activity {
